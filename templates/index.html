@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMeans Clustering Algorithm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>KMeans Clustering Algorithm</h1>
+        
+        <div class="control-panel">
+            <label for="nClusters">Number of Clusters (k):</label>
+            <input type="number" id="nClusters" placeholder="Enter number of clusters" min="1">
+            
+            <label for="initMethod">Initialization Method:</label>
+            <select id="initMethod">
+                <option value="random">Random</option>
+                <option value="farthest">Farthest First</option>
+                <option value="k-means++">KMeans++</option>
+                <option value="manual">Manual</option>
+            </select>
+            
+            <button id="stepKMeans" disabled>Step Through KMeans</button>
+            <button id="runKMeans" disabled>Run to Convergence</button>
+            <button id="generateDataset">Generate New Dataset</button>
+            <button id="resetAlgorithm">Reset Algorithm</button>
+        </div>
+        
+        <div id="plot" class="plot"></div>
+        <!-- Convergence message div -->
+        <div id="convergenceMessage" class="hidden">Convergence hasn't been reached yet</div>
+    </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
